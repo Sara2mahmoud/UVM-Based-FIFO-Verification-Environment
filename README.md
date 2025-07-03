@@ -79,7 +79,7 @@ This structured and layered approach ensures that the FIFO module is verified th
    ```
 2. Run the simulation:
    ```tcl
-   vsim -c -do "do test/run.do"
+   vsim -c -do "do run.txt"
    ```
 3. View coverage and waveform results.
 
