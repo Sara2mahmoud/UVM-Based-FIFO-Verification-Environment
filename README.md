@@ -7,21 +7,41 @@ A SystemVerilog/UVM testbench environment for verifying a synchronous FIFO desig
 
 ## 🧩 Repository Structure
 
-```
-UVM-Based-FIFO-Verification-Environment/
-├── rtl/                     # FIFO RTL implementation
-│   └── FIFO.sv
-├── env/                     # UVM environment
-│   ├── interface.sv        # FIFO transaction interface
-│   ├── agent/              # Driver, Monitor, Sequencer, Agent
-│   ├── sequence/           # Stimulus sequences
-│   ├── scoreboard.sv       # Functional checking
-│   └── coverage.sv         # Functional coverage model
-├── test/                    # UVM test/bench top files
-│   └── run.do              # Script to compile & simulate
-└── README.md               # Project documentation
-```
+# Create the README section with .md format for repository files
+repo_files_md = """
+## 📁 Repository Files
 
+| File Name                    | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| `FIFO.sv`                   | RTL implementation of the FIFO module.                                     |
+| `FIFO_agent_pkg.sv`         | Contains UVM agent components (driver, monitor, sequencer).                |
+| `FIFO_config_pkg.sv`        | UVM configuration setup for connecting components.                         |
+| `FIFO_coverage_pkg.sv`      | Functional coverage definitions for FIFO behavior.                         |
+| `FIFO_driver_pkg.sv`        | UVM driver logic to apply transactions to the DUT.                         |
+| `FIFO_ENV_pkg.sv`           | Top-level UVM environment connections and build phase.                     |
+| `FIFO_monitor_pkg.sv`       | UVM monitor to capture DUT activity.                                       |
+| `FIFO_scoreboard_pkg.sv`    | Compares expected vs actual DUT output (result checker).                   |
+| `FIFO_seq_item_pkg.sv`      | Defines UVM sequence item (transaction).                                   |
+| `FIFO_sequencer_pkg.sv`     | UVM sequencer that drives sequences into the driver.                       |
+| `FIFO_sequences.sv`         | Stimulus sequences for test scenarios.                                     |
+| `FIFO_SVA.sv`               | SystemVerilog Assertions to verify protocol correctness.                   |
+| `FIFO_TEST_pkg.sv`          | UVM test definitions that instantiate environments and start sequences.    |
+| `FIFO_top.sv`               | Testbench top module integrating DUT and UVM environment.                  |
+| `FIFO_UVM_SARA MAHMOUD.pdf` | Project documentation in PDF format.                                      |
+| `interface.sv`              | SystemVerilog interface connecting DUT and UVM testbench.                  |
+| `run.txt`                   | Simulation script (e.g., for ModelSim/QuestaSim).                          |
+| `shared_pkg.sv`             | Shared typedefs or parameters used across the UVM environment.             |
+| `src_files.list`            | File list used by simulator or scripts.                                    |
+| `BLOCK DIAGRAM.png`         | High-level system block diagram of the FIFO environment.                   |
+| `README.md`                 | Project documentation file (you’re reading it!).                           |
+"""
+
+# Save it to a Markdown file
+file_path_repo_files = "/mnt/data/UVM_FIFO_File_List.md"
+with open(file_path_repo_files, "w") as f:
+    f.write(repo_files_md)
+
+file_path_repo_files
 ---
 
 ## ✅ Features
