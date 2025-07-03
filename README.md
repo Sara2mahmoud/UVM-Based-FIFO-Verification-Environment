@@ -18,6 +18,7 @@ The verification flow integrates the following key components:
 * **Test Control**: The `FIFO_test` class initializes and configures the environment, runs selected sequences, and reports simulation results including functional coverage and pass/fail metrics.
 
 This structured and layered approach ensures that the FIFO module is verified thoroughly in a reusable, scalable, and maintainable way. The testbench is suitable for both simulation and coverage-driven verification environments and provides a strong foundation for extending to more complex memory-based designs.
+
 ---
 
 ## 📈 Block Diagram
