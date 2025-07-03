@@ -1,14 +1,30 @@
 
 # UVM-Based FIFO Verification Environment
+## 📌 Project Overview
 
-A SystemVerilog/UVM testbench environment for verifying a synchronous FIFO design.
+This project presents a complete Universal Verification Methodology (UVM) testbench developed to verify a synchronous FIFO (First-In-First-Out) hardware design. The verification environment is designed in SystemVerilog and structured according to UVM best practices to ensure scalability, reusability, and thorough functional coverage.
 
+The core purpose of this environment is to validate that the FIFO module correctly handles various input and output scenarios—including simultaneous read/write operations, corner cases, and protocol compliance—through both randomized and directed test sequences.
+
+The verification flow integrates the following key components:
+
+* **Top-level Integration**: The DUT (FIFO) is connected to the UVM testbench through a dedicated interface, allowing seamless interaction between the design and verification components.
+* **Configuration Layer**: A centralized configuration package manages virtual interface sharing and parameter setup to ensure consistent access across all verification modules.
+* **Driver and Sequences**: The `FIFO_driver` applies stimulus to the DUT based on transaction-level inputs defined in the sequence layer. These sequences simulate reset, write, read, and mixed operational modes to evaluate design behavior under varying conditions.
+* **Monitor and Coverage**: The `FIFO_monitor` passively captures DUT signal activity, translating it into transaction objects used for coverage and analysis. The `FIFO_coverage` component defines coverage points to verify that all meaningful functional scenarios are exercised.
+* **Scoreboarding and Checking**: The `FIFO_scoreboard` compares monitored outputs against expected results derived from a reference model. It logs successes and mismatches, facilitating debug and functional verification.
+* **Assertions**: Embedded SystemVerilog Assertions (SVA) verify protocol-level properties during simulation, helping to catch violations like underflow, overflow, or illegal transitions.
+* **Agent and Environment**: The `FIFO_agent` encapsulates the driver, monitor, and sequencer to promote modularity. The `FIFO_env` coordinates all agents, coverage collectors, and the scoreboard to manage the simulation flow.
+* **Test Control**: The `FIFO_test` class initializes and configures the environment, runs selected sequences, and reports simulation results including functional coverage and pass/fail metrics.
+
+This structured and layered approach ensures that the FIFO module is verified thoroughly in a reusable, scalable, and maintainable way. The testbench is suitable for both simulation and coverage-driven verification environments and provides a strong foundation for extending to more complex memory-based designs.
 ---
 
-## 🧩 Repository Structure
+## 📈 Block Diagram
 
-# Create the README section with .md format for repository files
-repo_files_md = """
+<img src="BLOCK DIAGRAM.png" alt="BLOCK DIAGRAM" width="700"/>
+
+---
 ## 📁 Repository Files
 
 | File Name                    | Description                                                                 |
@@ -35,13 +51,6 @@ repo_files_md = """
 | `BLOCK DIAGRAM.png`         | High-level system block diagram of the FIFO environment.                   |
 | `README.md`                 | Project documentation file (you’re reading it!).                           |
 """
-
-# Save it to a Markdown file
-file_path_repo_files = "/mnt/data/UVM_FIFO_File_List.md"
-with open(file_path_repo_files, "w") as f:
-    f.write(repo_files_md)
-
-file_path_repo_files
 ---
 
 ## ✅ Features
@@ -91,12 +100,6 @@ file_path_repo_files
 
 ---
 
-## 📈 Block Diagram
-
-<img src="BLOCK DIAGRAM.png" alt="BLOCK DIAGRAM" width="700"/>
-
----
-
 ## 📝 Customization
 
 To adapt for different FIFOs:
@@ -104,15 +107,6 @@ To adapt for different FIFOs:
 - Update DUT instantiation in `run.do`  
 - Tune coverage models in `coverage.sv`  
 - Add new sequences to `env/sequence/` folder
-
----
-
-## 👫 Contributing
-
-- Fork the repo  
-- Add new verification scenarios  
-- Enhance coverage or assertion models  
-- Submit a pull request for review
 
 ---
 
