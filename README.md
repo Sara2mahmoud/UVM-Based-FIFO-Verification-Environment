@@ -73,7 +73,7 @@ UVM-Based-FIFO-Verification-Environment/
 
 ## 📈 Block Diagram
 
-<img src="docs/fifo_block_diagram.png" alt="FIFO Block Diagram" width="700"/>
+<img src="BLOCK DIAGRAM.png" alt="BLOCK DIAGRAM" width="700"/>
 
 ---
 
@@ -96,9 +96,6 @@ To adapt for different FIFOs:
 
 ---
 
-## 📄 License
-
-Project is released under [LICENSE_NAME] (e.g., MIT). See `LICENSE` file for details.
 
 ---
 
